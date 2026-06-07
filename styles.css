@@ -1,0 +1,256 @@
+/* ============================================================
+   HOJA DE ESTILOS — Plataforma Juvenil de Participación
+   ============================================================
+   Cómo funciona: este archivo define CÓMO se ve la página.
+   En index.html lo enlazamos con: <link rel="stylesheet" href="styles.css">
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. VARIABLES (colores y medidas reutilizables)
+   ------------------------------------------------------------
+   :root guarda valores que usamos muchas veces.
+   Si cambias un color aquí, cambia en toda la página.
+   ------------------------------------------------------------ */
+:root {
+    /* Colores principales */
+    --color-fondo: #0f1419;           /* Fondo oscuro del cuerpo */
+    --color-superficie: #1a2332;      /* Tarjetas y paneles */
+    --color-borde: #2d3a4f;           /* Líneas suaves entre secciones */
+    --color-texto: #e8edf4;           /* Texto principal (casi blanco) */
+    --color-texto-suave: #94a3b8;    /* Párrafos secundarios */
+    --color-acento: #3b82f6;          /* Azul — enlaces y detalles */
+    --color-acento-claro: #60a5fa;    /* Azul más claro al pasar el mouse */
+    --color-advertencia: #f59e0b;     /* Naranja — avisos importantes */
+    --color-advertencia-fondo: #422006;
+
+    /* Tipografía */
+    --fuente-principal: "Segoe UI", system-ui, -apple-system, sans-serif;
+    --fuente-mono: "Cascadia Code", "Consolas", monospace;
+
+    /* Espaciado (márgenes y rellenos) */
+    --espacio-xs: 0.5rem;   /* 8px aprox. */
+    --espacio-sm: 1rem;     /* 16px */
+    --espacio-md: 1.5rem;   /* 24px */
+    --espacio-lg: 2.5rem;   /* 40px */
+    --espacio-xl: 4rem;     /* 64px */
+
+    /* Bordes redondeados y sombras */
+    --radio: 12px;
+    --sombra: 0 4px 24px rgba(0, 0, 0, 0.35);
+    --sombra-acento: 0 0 40px rgba(59, 130, 246, 0.15);
+
+    /* Ancho máximo del contenido (legibilidad) */
+    --ancho-maximo: 720px;
+}
+
+
+/* ------------------------------------------------------------
+   2. RESET BÁSICO
+   ------------------------------------------------------------
+   Quita márgenes por defecto del navegador para control total.
+   box-sizing: border-box hace que padding no rompa el ancho.
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ------------------------------------------------------------
+   3. PÁGINA COMPLETA (body + html)
+   ------------------------------------------------------------ */
+html {
+    /* Suaviza el scroll al hacer clic en enlaces internos */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    font-size: 1.0625rem;          /* ~17px — cómodo para leer */
+    line-height: 1.7;              /* Espacio entre líneas */
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+
+    /* Fondo con degradado sutil (más profesional que color plano) */
+    background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+
+    min-height: 100vh;             /* Ocupa al menos toda la pantalla */
+}
+
+
+/* ------------------------------------------------------------
+   4. ENCABEZADO (header)
+   ------------------------------------------------------------ */
+header {
+    border-bottom: 1px solid var(--color-borde);
+    background: rgba(26, 35, 50, 0.6);
+    backdrop-filter: blur(12px);   /* Efecto cristal esmerilado */
+    position: sticky;              /* Se queda arriba al hacer scroll */
+    top: 0;
+    z-index: 10;
+}
+
+.header-contenido {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: var(--espacio-md) var(--espacio-sm);
+}
+
+.badge {
+    /* Etiqueta pequeña encima del título */
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-acento-claro);
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    padding: var(--espacio-xs) var(--espacio-sm);
+    border-radius: 999px;          /* Forma de píldora */
+    margin-bottom: var(--espacio-sm);
+}
+
+header h1 {
+    font-size: clamp(1.5rem, 4vw, 2rem);  /* Tamaño adaptable al móvil */
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+
+/* ------------------------------------------------------------
+   5. CONTENIDO PRINCIPAL (main)
+   ------------------------------------------------------------ */
+main {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: var(--espacio-lg) var(--espacio-sm) var(--espacio-xl);
+}
+
+
+/* ------------------------------------------------------------
+   6. SECCIONES (section)
+   ------------------------------------------------------------
+   Cada bloque de contenido va en una <section> con clase "tarjeta"
+   ------------------------------------------------------------ */
+.tarjeta {
+    background: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    padding: var(--espacio-md) var(--espacio-md);
+    margin-bottom: var(--espacio-md);
+    box-shadow: var(--sombra);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Al pasar el mouse, la tarjeta resalta un poco */
+.tarjeta:hover {
+    border-color: rgba(59, 130, 246, 0.35);
+    box-shadow: var(--sombra), var(--sombra-acento);
+}
+
+/* Tarjeta de advertencia — estilo distinto para llamar la atención */
+.tarjeta--advertencia {
+    border-color: rgba(245, 158, 11, 0.4);
+    background: linear-gradient(
+        135deg,
+        var(--color-superficie) 0%,
+        var(--color-advertencia-fondo) 100%
+    );
+}
+
+.tarjeta--advertencia:hover {
+    border-color: rgba(245, 158, 11, 0.6);
+    box-shadow: var(--sombra), 0 0 30px rgba(245, 158, 11, 0.1);
+}
+
+
+/* ------------------------------------------------------------
+   7. TÍTULOS (h2, h3)
+   ------------------------------------------------------------ */
+h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--espacio-sm);
+    color: var(--color-texto);
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+}
+
+/* Línea decorativa antes del h2 */
+h2::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 1.25rem;
+    background: var(--color-acento);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.tarjeta--advertencia h2::before {
+    background: var(--color-advertencia);
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-acento-claro);
+    margin-bottom: var(--espacio-xs);
+    font-family: var(--fuente-mono);
+}
+
+
+/* ------------------------------------------------------------
+   8. PÁRRAFOS (p)
+   ------------------------------------------------------------ */
+p {
+    color: var(--color-texto-suave);
+    margin-bottom: var(--espacio-sm);
+}
+
+/* El último párrafo de una sección no necesita margen inferior */
+.tarjeta p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ------------------------------------------------------------
+   9. PIE DE PÁGINA (footer)
+   ------------------------------------------------------------ */
+footer {
+    border-top: 1px solid var(--color-borde);
+    padding: var(--espacio-md) var(--espacio-sm);
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.875rem;
+    color: var(--color-texto-suave);
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+
+/* ------------------------------------------------------------
+   10. RESPONSIVE — pantallas pequeñas (móvil)
+   ------------------------------------------------------------
+   @media aplica estilos solo cuando la pantalla es estrecha.
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+    main {
+        padding-top: var(--espacio-md);
+    }
+
+    .tarjeta {
+        padding: var(--espacio-sm);
+    }
+}
