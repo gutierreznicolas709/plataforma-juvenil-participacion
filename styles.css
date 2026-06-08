@@ -218,50 +218,76 @@ footer p {
 }
 
 .seccion-candidatos {
-    background-color: white;
-    padding: 25px;
-    border-radius: 12px;
-    margin-top: 25px;
-  }
-  
-  .contenedor-candidatos {
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 0 var(--espacio-sm) var(--espacio-xl);
+}
+
+.seccion-candidatos > h2 {
+    margin-bottom: var(--espacio-xs);
+}
+
+.seccion-candidatos > p {
+    margin-bottom: 0;
+}
+
+.contenedor-candidatos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 18px;
-    margin-top: 20px;
-  }
-  
-  .tarjeta-candidato {
-    border: 1px solid #ddd;
-    border-left: 5px solid #8A1538;
-    border-radius: 10px;
-    padding: 18px;
-    background-color: #fff;
-  }
-  
-  .tarjeta-candidato h3 {
-    color: #8A1538;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--espacio-md);
+    margin-top: var(--espacio-md);
+}
+
+.tarjeta-candidato {
+    background: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-left: 4px solid var(--color-acento);
+    border-radius: var(--radio);
+    padding: var(--espacio-md);
+    box-shadow: var(--sombra);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-candidato:hover {
+    border-color: rgba(59, 130, 246, 0.35);
+    box-shadow: var(--sombra), var(--sombra-acento);
+}
+
+.tarjeta-candidato h3 {
+    color: var(--color-acento-claro);
     margin-top: 0;
-  }
-  
-  .tarjeta-candidato button {
-    margin-top: 10px;
-    background-color: #8A1538;
-    color: white;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 8px;
+    margin-bottom: var(--espacio-xs);
+}
+
+.tarjeta-candidato p {
+    margin-bottom: var(--espacio-xs);
+}
+
+.btnPerfil {
+    margin-top: var(--espacio-sm);
+    background: linear-gradient(135deg, var(--color-acento), #2563eb);
+    color: var(--color-texto);
+    border: 1px solid rgba(96, 165, 250, 0.35);
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
     cursor: pointer;
-  }
-  
-  .tarjeta-candidato button:hover {
-    background-color: #C2185B;
-  }
-  
-  .detalle-perfil {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #b32a2a;
-    border-left: 5px solid #C2185B;
-    border-radius: 8px;
-  }
+    font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btnPerfil:hover {
+    background: linear-gradient(135deg, var(--color-acento-claro), var(--color-acento));
+    box-shadow: 0 8px 18px rgba(59, 130, 246, 0.25);
+    transform: translateY(-1px);
+}
+
+.detalle-perfil {
+    margin-top: var(--espacio-md);
+    padding: var(--espacio-sm);
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-left: 4px solid var(--color-acento);
+    border-radius: var(--radio);
+    color: var(--color-texto);
+    box-shadow: var(--sombra);
+}
