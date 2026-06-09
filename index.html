@@ -45,7 +45,7 @@
                 Esta clase se mejora la  estructra visual del proyecto y se conectan los
                 archivos  de HTML, CSS y JavaScript.
             </p>
-            <button id="btnMensaje">Ver mensaje de la clase</button>
+            <button id="btnMensaje" class="btn-primario">Ver mensaje de la clase</button>
             <p id="MensajeClase"></p>
         </section>
 
@@ -103,7 +103,7 @@
       
         <div id="detallePerfil" class="detalle-perfil"></div>
       </section>
-<section class="formulario-candidato">
+      <section class="tarjeta formulario-candidato">
         <h2>Registrar perfil pedagógico</h2>
       
         <p>
@@ -115,21 +115,30 @@
         <input id="rolCandidato" type="text" placeholder="Rol pedagógico">
         <textarea id="propuestaCandidato" rows="3" placeholder="Propuesta breve y responsable"></textarea>
       
-        <button id="btnGuardarCandidato" type="button">Guardar perfil</button>
+        <button id="btnGuardarCandidato" class="btn-primario" type="button">Guardar perfil</button>
       
         <p id="mensajeGuardado"></p>
       </section>
       
-      <section class="lista-candidatos">
+      <section class="tarjeta lista-candidatos">
         <h2>Perfiles guardados</h2>
         <div id="contenedorCandidatosGuardados"></div>
       </section>
+
+    <section class="cta-votacion">
+        <div>
+            <span class="badge badge--cta">Acceso principal</span>
+            <h2>Ir a votación pedagógica</h2>
+            <p>Registra un voto ficticio y revisa los perfiles disponibles en una sola vista.</p>
+        </div>
+        <a class="btn-primario btn-primario--cta" href="votar.html">Entrar a la votación</a>
+    </section>
+    <script src="App.js" defer></script>
+</body>
+</html>
 
     <!-- Pie de página -->
     <footer>
         <p>Copyright 2026 Plataforma Juvenil de Participación — Uso exclusivamente pedagógico</p>
         <p>Programadores para la Paz - Modulo 3</p>
     </footer>
-<script src="App.js"defer></script>
-</body>
-</html>

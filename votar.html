@@ -16,7 +16,7 @@
   </header>
 
   <main>
-    <section>
+    <section class="tarjeta formulario-voto">
       <h2>Registrar voto</h2>
 
       <p>
@@ -24,38 +24,44 @@
         No uses cédulas ni datos reales.
       </p>
 
-      <input 
-        id="identificacionVotante" 
-        type="text" 
-        placeholder="Identificación ficticia. Ejemplo: EST001"
-      >
+      <div class="campo-grupo">
+        <label for="identificacionVotante">Identificación ficticia</label>
+        <input
+          id="identificacionVotante"
+          type="text"
+          placeholder="Ejemplo: EST001"
+        >
+      </div>
 
-      <select id="candidatoSeleccionado">
-        <option value="">Cargando candidatos...</option>
-      </select>
+      <div class="campo-grupo">
+        <label for="candidatoSeleccionado">Perfil a votar</label>
+        <select id="candidatoSeleccionado">
+          <option value="">Cargando candidatos...</option>
+        </select>
+      </div>
 
-      <button id="btnVotar" type="button">Registrar voto pedagógico</button>
+      <button id="btnVotar" class="btn-accion" type="button">Registrar voto pedagógico</button>
 
-      <p id="mensajeVoto"></p>
+      <p id="mensajeVoto" class="mensaje-voto"></p>
     </section>
 
-    <section>
+    <section class="tarjeta panel-candidatos">
       <h2>Candidatos disponibles</h2>
       <div id="contenedorCandidatosDisponibles"></div>
     </section>
 
-    <section>
+    <section class="tarjeta panel-votos">
       <h2>Consultar votos registrados</h2>
       <p>
         Esta consulta es solo para verificar que el archivo JSON recibe datos durante la práctica.
       </p>
 
-      <button id="btnCargarVotos" type="button">Cargar votos</button>
+      <button id="btnCargarVotos" class="btn-accion btn-accion--secundario" type="button">Cargar votos</button>
 
       <div id="contenedorVotos"></div>
     </section>
 
-    <section>
+    <section class="tarjeta enlace-volver">
       <a href="index.html">Volver a perfiles</a>
     </section>
   </main>

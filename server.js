@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(express.static(__dirname));
 
 const rutaCandidatos = path.join(__dirname, "Data", "Candidatos.json");
+const rutaVotos = path.join(__dirname, "Data", "votos.json");
 
 function leerCandidatos() {
   const data = fs.readFileSync(rutaCandidatos, "utf8");
@@ -17,6 +18,19 @@ function leerCandidatos() {
 
 function guardarCandidatos(candidatos) {
   fs.writeFileSync(rutaCandidatos, JSON.stringify(candidatos, null, 2));
+}
+
+function leerVotos() {
+  if (!fs.existsSync(rutaVotos)) {
+    return [];
+  }
+
+  const data = fs.readFileSync(rutaVotos, "utf8");
+  return JSON.parse(data);
+}
+
+function guardarVotos(votos) {
+  fs.writeFileSync(rutaVotos, JSON.stringify(votos, null, 2));
 }
 
 app.get("/api/candidatos", function (req, res) {
@@ -46,6 +60,38 @@ app.post("/api/candidatos", function (req, res) {
   res.status(201).json({
     mensaje: "Perfil guardado correctamente",
     candidato: nuevoCandidato
+  });
+});
+
+app.get("/api/votos", function (req, res) {
+  const votos = leerVotos();
+  res.json(votos);
+});
+
+app.post("/api/votos", function (req, res) {
+  const identificacion = req.body.identificacion;
+  const candidato = req.body.candidato;
+
+  if (!identificacion || !candidato) {
+    return res.status(400).json({
+      mensaje: "Faltan datos obligatorios para registrar el voto"
+    });
+  }
+
+  const votos = leerVotos();
+  const nuevoVoto = {
+    id: Date.now(),
+    identificacion: identificacion,
+    candidato: candidato,
+    fecha: new Date().toLocaleString("es-ES")
+  };
+
+  votos.push(nuevoVoto);
+  guardarVotos(votos);
+
+  res.status(201).json({
+    mensaje: "Voto registrado correctamente",
+    voto: nuevoVoto
   });
 });
 

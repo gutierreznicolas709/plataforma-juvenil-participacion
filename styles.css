@@ -112,6 +112,16 @@ main {
     padding: var(--espacio-lg) var(--espacio-sm) var(--espacio-xl);
 }
 
+.formulario-voto,
+.panel-candidatos,
+.panel-votos,
+.enlace-volver {
+    background: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
 
 
 .tarjeta {
@@ -263,22 +273,43 @@ footer p {
     margin-bottom: var(--espacio-xs);
 }
 
-.btnPerfil {
+.btnPerfil,
+.btn-primario,
+.btn-accion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
     margin-top: var(--espacio-sm);
     background: linear-gradient(135deg, var(--color-acento), #2563eb);
     color: var(--color-texto);
     border: 1px solid rgba(96, 165, 250, 0.35);
-    padding: 0.75rem 1rem;
+    padding: 0.8rem 1rem;
     border-radius: 999px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 8px 18px rgba(59, 130, 246, 0.18);
     transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.btnPerfil:hover {
+.btnPerfil:hover,
+.btn-primario:hover,
+.btn-accion:hover {
     background: linear-gradient(135deg, var(--color-acento-claro), var(--color-acento));
-    box-shadow: 0 8px 18px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 10px 22px rgba(59, 130, 246, 0.28);
     transform: translateY(-1px);
+}
+
+.btn-primario--cta {
+    padding: 0.9rem 1.15rem;
+    background: linear-gradient(135deg, #22d3ee, #3b82f6);
+    border-color: rgba(125, 211, 252, 0.45);
+}
+
+.btn-accion--secundario {
+    background: linear-gradient(135deg, #1f2937, #111827);
+    border-color: rgba(148, 163, 184, 0.25);
 }
 
 .detalle-perfil {
@@ -293,26 +324,83 @@ footer p {
 }
 
 
-.formulario-candidato input,
-.formulario-candidato textarea {
+input,
+select,
+textarea {
   width: 100%;
   box-sizing: border-box;
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #5e69c3;
-  border-radius: 6px;
+  margin-top: 0.35rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--color-texto);
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.6);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(96, 165, 250, 0.7);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+}
+
+@media (max-width: 640px) {
+    .cta-votacion {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 #mensajeGuardado {
   margin-top: 12px;
-  font-weight: bold;
-  color: #8A1538;
+  font-weight: 700;
+  color: var(--color-acento-claro);
+}
+
+.cta-votacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: var(--ancho-maximo);
+    margin: 0 auto 2rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-radius: var(--radio);
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(15, 23, 42, 0.98));
+    box-shadow: var(--sombra), 0 0 35px rgba(59, 130, 246, 0.12);
+}
+
+.cta-votacion h2 {
+    margin-bottom: 0.25rem;
+}
+
+.cta-votacion p {
+    margin-bottom: 0;
+}
+
+.badge--cta {
+    background: rgba(34, 211, 238, 0.12);
+    color: #67e8f9;
+    border-color: rgba(34, 211, 238, 0.25);
 }
 
 .tarjeta-guardada {
   margin-top: 12px;
-  padding: 12px;
-  border-left: 5px solid #8A1538;
-  background-color: #2c6bb4;
-  border-radius: 8px;
+  padding: var(--espacio-sm);
+  border-left: 4px solid var(--color-acento);
+  border-radius: var(--radio);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  box-shadow: var(--sombra);
+}
+
+.tarjeta-guardada h3 {
+  margin-bottom: 0.25rem;
+}
+
+.tarjeta-guardada p {
+  margin-bottom: 0.35rem;
 }
