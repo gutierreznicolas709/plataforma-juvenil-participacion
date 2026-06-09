@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": 1780974167331,
+    "nombre": "JJJ",
+    "rol": "funcionario",
+    "propuesta": "Velar por los derechos",
+    "estado": "Perfil de práctica académica"
+  },
+  {
+    "id": 1780974271624,
+    "nombre": "Nicolas",
+    "rol": "Veedor",
+    "propuesta": "Verifciar que todo marche bien",
+    "estado": "Perfil de práctica académica"
+  }
+]

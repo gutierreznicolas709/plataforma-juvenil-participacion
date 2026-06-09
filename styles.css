@@ -291,3 +291,28 @@ footer p {
     color: var(--color-texto);
     box-shadow: var(--sombra);
 }
+
+
+.formulario-candidato input,
+.formulario-candidato textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #5e69c3;
+  border-radius: 6px;
+}
+
+#mensajeGuardado {
+  margin-top: 12px;
+  font-weight: bold;
+  color: #8A1538;
+}
+
+.tarjeta-guardada {
+  margin-top: 12px;
+  padding: 12px;
+  border-left: 5px solid #8A1538;
+  background-color: #2c6bb4;
+  border-radius: 8px;
+}
